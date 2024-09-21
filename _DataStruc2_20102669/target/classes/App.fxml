@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1200.0" style="-fx-background-color: #292F36;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example._datastruc2_20102669.ParisController">
+   <right>
+        <AnchorPane prefHeight="828.0" prefWidth="1200.0" style="-fx-background-color: #F5DBCB;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="imageView" fitHeight="544.0" fitWidth="763.0" layoutX="247.0" layoutY="54.0" onMouseClicked="#addWayPoint" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@MapOfParis.png" />
+                    </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+                </ImageView>
+                <Text fill="#080808" layoutX="532.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paris Route Finder">
+                    <font>
+                        <Font name="Times New Roman" size="24.0" />
+                    </font>
+                </Text>
+                <ChoiceBox fx:id="startChoiceBox" layoutX="1051.0" layoutY="633.0" prefHeight="43.0" prefWidth="136.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+               <effect>
+                  <InnerShadow />
+               </effect></ChoiceBox>
+                <ChoiceBox fx:id="endChoiceBox" layoutX="1051.0" layoutY="726.0" prefHeight="43.0" prefWidth="136.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+               <effect>
+                  <InnerShadow />
+               </effect></ChoiceBox>
+                <Text fill="#1e1d1d" layoutX="1069.0" layoutY="625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting point:">
+               <font>
+                  <Font size="16.0" />
+               </font></Text>
+                <Text fill="#101010" layoutX="1077.0" layoutY="713.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination:">
+               <font>
+                  <Font size="16.0" />
+               </font></Text>
+                <Text fill="#1b1a1a" layoutX="1020.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate Shortest Route">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Text>
+                <Button layoutX="1031.0" layoutY="222.0" mnemonicParsing="false" onAction="#genBFSShortestPath" prefHeight="53.0" prefWidth="149.0" style="-fx-background-radius: 15; -fx-background-color: #7EB77F; -fx-text-fill: white;" text="Breadth-First-Search">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <Text fill="#131313" layoutX="13.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most historical/cultural route">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Text>
+                <Button layoutX="1033.0" layoutY="314.0" mnemonicParsing="false" onAction="#dijkstraShortPath" prefHeight="54.0" prefWidth="149.0" style="-fx-background-color: #ED7B84; -fx-background-radius: 15; -fx-text-fill: white;" text="Dijkstra's Algorithm">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <Button layoutX="49.0" layoutY="241.0" mnemonicParsing="false" onAction="#genMostHistoricalRoute" prefHeight="54.0" prefWidth="149.0" style="-fx-background-color: #F92A82; -fx-background-radius: 15; -fx-text-fill: white;" text="Dijkstra's Algo">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <Button layoutX="247.0" layoutY="15.0" mnemonicParsing="false" onAction="#mapReset" style="-fx-background-color: #D6D5B3; -fx-text-fill: black; -fx-background-radius: 15;" text="Reset Map">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <Text fill="WHITE" layoutX="858.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <Button layoutX="914.0" layoutY="790.0" mnemonicParsing="false" onAction="#genDFSRoutes" prefHeight="32.0" prefWidth="218.0" style="-fx-background-color: #ED7B84; -fx-text-fill: black; -fx-background-radius: 15;" text="Generate Depth-FS routes" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <ListView fx:id="listViewDepthFS" layoutX="425.0" layoutY="645.0" onMouseClicked="#landmarkNodeLines" prefHeight="164.0" prefWidth="257.0" style="-fx-background-radius: 15;">
+               <effect>
+                  <InnerShadow />
+               </effect></ListView>
+                <Text fill="#181818" layoutX="490.0" layoutY="828.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List of DFS routes ">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="maxNumDepthFSRoutes" layoutX="892.0" layoutY="655.0" prefHeight="25.0" prefWidth="41.0">
+               <effect>
+                  <InnerShadow />
+               </effect></TextField>
+                <Text fill="#1e1d1d" layoutX="828.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Number Of Routes:">
+                    <font>
+                        <Font size="16.0" />
+                    </font></Text>
+                <ListView fx:id="waypointsListView" layoutX="29.0" layoutY="645.0" prefHeight="164.0" prefWidth="290.0" style="-fx-background-radius: 10;">
+               <effect>
+                  <InnerShadow />
+               </effect></ListView>
+                <Text fill="#131313" layoutX="132.0" layoutY="829.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waypoints">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Text>
+                <Text fill="#151414" layoutX="851.0" layoutY="724.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avoid Point">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Text>
+                <ChoiceBox fx:id="avoidPointChoiceBox" layoutX="814.0" layoutY="735.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+               <effect>
+                  <InnerShadow />
+               </effect></ChoiceBox>
+                <Button layoutX="976.0" layoutY="735.0" mnemonicParsing="false" onAction="#pathPointToAvoid" style="-fx-background-color: #7EB77F; -fx-background-radius: 3;" text="OK">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+                <Button layoutX="26.0" layoutY="425.0" mnemonicParsing="false" onAction="#displayLinksWithLines" prefHeight="76.0" prefWidth="194.0" style="-fx-background-radius: 8; -fx-background-color: #D6D5B3; -fx-text-fill: black;" text="Display Connections">
+                    <font>
+                        <Font name="Tlwg Mono Bold" size="16.0" />
+                    </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+                </Button>
+            </children>
+        </AnchorPane>
+   </right>
+</BorderPane>
